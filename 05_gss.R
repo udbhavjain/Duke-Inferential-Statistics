@@ -6,7 +6,7 @@ library(statsr)
 load("gss.Rdata")
 
 " The general society survey uses an area probability sample i.e clustered/multi-stage sampling.
-  The observations are fairly random and represent people from different parts of the country. "
+  The observations are random and represent people from different parts of the country. "
 
 "------------------------------------------------------------------------------------------------------------------------"
 
