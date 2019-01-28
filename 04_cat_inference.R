@@ -37,7 +37,6 @@ sum(us12$response == "non-atheist")
   distribution can be assumed to be nearly normal. "
 
 # calculate confidence interval
-x11()
 inference(y = response, data = us12, statistic = "proportion", type = "ci", method = "theoretical", success = "atheist")
 
 " A margin of error defines how much the calculated estimate may deviate from the true value. "
@@ -60,7 +59,6 @@ sum(ca12$response == "non-atheist")
   Skew - Number of successes and failures is more than 10; Sampling distribution is normal. "
 
 # confidence interval
-x11()
 inference(y = response, data = ca12, statistic = "proportion", type = "ci", method = "theoretical", success = "atheist")
 
 " 95% CI for Canada is (0.0364 , 0.0634). "
@@ -77,7 +75,6 @@ sum(jp12$response == "non-atheist")
   Skew - Number of successes and failures is more than 10; Sampling distribution is normal. "
 
 # confidence interval
-x11()
 inference(y = response, data = jp12, statistic = "proportion", type = "ci", method = "theoretical", success = "atheist")
 
 " 95% CI for Japan is (0.281 , 0.3329). "
@@ -88,7 +85,6 @@ n <- 1000
 d <- d %>%
   mutate(me = 1.96*sqrt(p*(1 - p)/n))
 
-x11()
 ggplot(d, aes(x = p, y = me)) +
   geom_line()
 
@@ -116,7 +112,6 @@ n2p_ <- sum(es0512$year == "2012") * (1-p_pool)
 " Condition is satisfied. Sampling distribution is normal. "
 
 # hypothesis test
-x11()
 inference(y = response, x = year, data = es0512, success = "atheist" , statistic = "proportion", type = "ht", 
           null = 0, alternative = "twosided", method = "theoretical")
 
@@ -146,7 +141,6 @@ n2p_ <- sum(us0512$year == "2012") * (1-p_pool)
 " Condition is satisfied. Sampling distribution is normal. "
 
 # hypothesis test
-x11()
 inference(y = response, x = year, data = us0512, success = "atheist" , statistic = "proportion", type = "ht", 
           null = 0, alternative = "twosided", method = "theoretical")
 
