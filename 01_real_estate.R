@@ -7,7 +7,6 @@ library(ggplot2)
 data(ames)
 
 # visualise distribution of living area of houses
-x11()
 ggplot(data = ames, aes(x = area)) +
   geom_histogram(binwidth = 250)
 
@@ -32,7 +31,6 @@ samp1 <- ames %>%
   sample_n(size = 50)
 
 # visualise distribution of sample
-x11()
 ggplot(data = samp1, aes(x = area)) +
   geom_histogram(binwidth = 250)
 
@@ -92,15 +90,12 @@ sample_5k_100 <- ames %>%
   rep_sample_n(size = 100, reps = 5000, replace = TRUE) %>%
   summarise(x_bar = mean(area))
 
-x11()
 ggplot(data = sample_5k_10, aes(x = x_bar)) +
   geom_histogram(binwidth = 20)
 
-x11()
 ggplot(data = sample_5k_50, aes(x = x_bar)) +
   geom_histogram(binwidth = 20)
 
-x11()
 ggplot(data = sample_5k_100, aes(x = x_bar)) +
   geom_histogram(binwidth = 20)
 
@@ -119,7 +114,6 @@ sample_means50 <- ames %>%
   summarise(x_bar = mean(price))
 
 # plot the means of price
-x11()
 ggplot(data = sample_means50, aes(x = x_bar)) +
   geom_histogram(binwidth = 2000)
 "Distribution is almost normal. Mean home price is about 180k."
@@ -131,7 +125,6 @@ sample_means150 <- ames %>%
   summarise(x_bar = mean(price))
 
 # plot the means of price
-x11()
 ggplot(data = sample_means150, aes(x = x_bar)) +
   geom_histogram(binwidth = 2000)
 "Distribution has narrowed down. Mean home price is about 180k"
@@ -150,7 +143,6 @@ sample_means15 <- ames %>%
   summarise(x_bar = mean(price))
 
 # plot the distribution
-x11()
 ggplot(data = sample_means15, aes(x = x_bar)) +
   geom_histogram(binwidth = 2000)
 "Distribution is right skewed. Mean home price appears to be about 180k"
@@ -165,7 +157,6 @@ sample_means150 <- ames %>%
   summarise(x_bar = mean(price))
 
 # plot the distribution
-x11()
 ggplot(data = sample_means150, aes(x = x_bar)) +
   geom_histogram(binwidth = 2000)
 "Skew is gone, variability is lower and distribution is almost normal now. 
