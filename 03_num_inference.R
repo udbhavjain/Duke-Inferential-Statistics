@@ -16,7 +16,6 @@ summary(nc$gained)
 " 27 observations have missing weight gain data. "
 
 # side-by-side boxplots for weight, grouped by smoking habit
-x11()
 ggplot(data = nc, aes(y = weight, x = habit)) +
   geom_boxplot()
 
@@ -33,14 +32,12 @@ nc %>%
 "
 
 # conduct hypothesis test using the inference function
-x11()
 inference(y = weight, x = habit, data = nc, statistic = "mean", type = "ht", 
           null = 0, alternative = "twosided", method = "theoretical")
 
 " p-value is 2%, so we reject the null hypothesis. There is indeed a difference between the weights. "
 
 # confidence interval for the difference between the weights of babies
-x11()
 inference(y = weight, x = habit, data = nc, statistic = "mean", type = "ci", 
           method = "theoretical")
 
@@ -50,19 +47,16 @@ inference(y = weight, x = habit, data = nc, statistic = "mean", type = "ci",
 "
 
 # calculate interval for (smoker - nonsmoker)
-x11()
 inference(y = weight, x = habit, data = nc, statistic = "mean", type = "ci", 
           method = "theoretical", order = c("smoker","nonsmoker"))
 
 # 99% confidence interval for the average length of pregnancies 
-x11()
 inference(y = weeks, data = nc, statistic = "mean", type = "ci", 
           method = "theoretical", conf_level = 0.99)
 
 " 99% CI is (38.0952 , 38.5742) weeks. "
 
 # 90% confidence interval for the average length of pregnancies
-x11()
 inference(y = weeks, data = nc, statistic = "mean", type = "ci", 
           method = "theoretical", conf_level = 0.90)
 
@@ -76,7 +70,6 @@ inference(y = weeks, data = nc, statistic = "mean", type = "ci",
  (HA: mu{mature} != mu{younger})"
 
 # hypothesis testing
-x11()
 inference(y = gained, x = mature, data = nc, statistic = "mean", type = "ht", 
           null = 0, alternative = "twosided", method = "theoretical")
 
@@ -84,7 +77,6 @@ inference(y = gained, x = mature, data = nc, statistic = "mean", type = "ht",
   There is no difference between the average weight gained by mature and younger mothers. "
 
 # confidence interval
-x11()
 inference(y = gained, x = mature, data = nc, statistic = "mean", type = "ci", 
           method = "theoretical")
 
@@ -92,7 +84,6 @@ inference(y = gained, x = mature, data = nc, statistic = "mean", type = "ci",
   As the bounds of the CI are not on the same side of zero, the difference is not significant."
 
 # determine age cutoff for younger and mature mothers
-x11()
 ggplot(data = nc, aes(y = fage, x = mature)) +
   geom_boxplot()
 
@@ -108,7 +99,6 @@ ggplot(data = nc, aes(y = fage, x = mature)) +
  (HA: mu{male} != mu{female})"
 
 # hypothesis testing
-x11()
 inference(y = weight, x = gender, data = nc, statistic = "mean", type = "ht", 
           null = 0, alternative = "twosided", method = "theoretical")
 
@@ -116,7 +106,6 @@ inference(y = weight, x = gender, data = nc, statistic = "mean", type = "ht",
   The weights of female and male newborns are not equal. "
 
 # confidence interval
-x11()
 inference(y = weight, x = gender, data = nc, statistic = "mean", type = "ci", 
           method = "theoretical", order = c("male","female"))
 
