@@ -32,7 +32,6 @@ print.data.frame(
 )
 
 # visualise distribution
-x11()
 ggplot(data = ages2012, aes(x = age)) +
   geom_histogram(binwidth = 5)
 " lightly skewed to the right. "
@@ -70,12 +69,10 @@ print.data.frame(
 )
 
 # visualise distributions
-x11()
 ggplot(data = ages1272 %>% filter(year == "1972"), aes(x = age)) +
   ggtitle("1972") +
   geom_histogram(binwidth = 5)
 
-x11()
 ggplot(data = ages1272 %>% filter(year == "2012"), aes(x = age)) +
   ggtitle("2012") +
   geom_histogram(binwidth = 5)
@@ -93,7 +90,6 @@ ggplot(data = ages1272 %>% filter(year == "2012"), aes(x = age)) +
   Skew: Sample size is sufficiently large (>30).
 "
 
-x11()
 inference(data = ages1272, x = year, y = age ,statistic = "mean", type = "ht", 
           null = 0, alternative = "twosided", method = "theoretical")
 
@@ -136,7 +132,6 @@ print.data.frame(born2012 %>% summarise(p = sum(born == "Yes")/n(), np = p * n()
 )
 
 # visualisation
-x11()
 ggplot(data = born2012, aes(x = born2012$born)) + geom_bar()
   
 
@@ -183,7 +178,6 @@ print.data.frame(
 )
 
 # visualisation 
-x11()
 ggplot(data = born1282, aes(x = year, fill = born)) + 
   geom_bar(position = "fill") + ylab(label = "proportion")
 
@@ -198,7 +192,6 @@ ggplot(data = born1282, aes(x = year, fill = born)) +
   Skew: n1p1 & n1(1-p1) > 10; n2p2 & n2(1-p2) > 10
 "
 
-x11()
 inference(data = born1282, y = born, x = year, type = "ht", statistic = "proportion",
           success = "Yes", method = "theoretical", null = 0, alternative = "twosided")
 
@@ -245,7 +238,6 @@ sum(fm2012$sex == "Male")/nrow(fm2012)
 " 44.88%, which is below 50%. "
 
 # visualisation
-x11()
 ggplot(data = fm2012, aes(x = sex, fill = sex)) + geom_bar()
 
 # simulation based hypothesis test
@@ -256,7 +248,6 @@ ggplot(data = fm2012, aes(x = sex, fill = sex)) + geom_bar()
  H0: p(Male} =  0.5
  HA: p(Male) != 0.5
 "
-x11()
 inference(data = fm2012, y = sex, type = "ht", statistic = "proportion", success = "Male",
           null = 0.5, alternative = "twosided", method = "simulation", nsim = 10000, seed = 2012)
 
@@ -303,7 +294,6 @@ fm12party %>%
     )
 
 # visualisation
-x11()
 ggplot(data = fm12party, aes(x = sex, fill = partyid)) +
   geom_bar(position = "fill") + ylab("proportion")
   
@@ -348,7 +338,6 @@ min(expCounts) # 24.21
   HA: Political affiliation does vary by gender. 
 "
 
-x11()
 inference(data = fm12party, y = sex, x = partyid, type = "ht", statistic = "proportion",
           alternative = "greater", method = "theoretical")
 
