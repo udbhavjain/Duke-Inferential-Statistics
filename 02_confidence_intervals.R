@@ -21,7 +21,6 @@ print.data.frame(
   )
 
 # visualisation of areas in sample
-x11()
 ggplot(data = samp, aes(x = area)) +
   geom_histogram(binwidth = 250)
 
@@ -79,7 +78,6 @@ ci_data <- data.frame(ci_id = c(1:50, 1:50),
 print.data.frame(ci_data)
 
 # plot to check if sample captures true mean
-x11()
 ggplot(data = ci_data, aes(x = ci_bounds, y = ci_id, 
                            group = ci_id, color = capture_mu)) +
   geom_point(size = 2) +  # add points at the ends, size = 2
@@ -122,7 +120,6 @@ ci_data <- data.frame(ci_id = c(1:50, 1:50),
 print.data.frame(ci_data)
 
 # plot to check if sample captures true mean
-x11()
 ggplot(data = ci_data, aes(x = ci_bounds, y = ci_id, 
                            group = ci_id, color = capture_mu)) +
   geom_point(size = 2) +  # add points at the ends, size = 2
